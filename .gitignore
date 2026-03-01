@@ -134,3 +134,7 @@ dmypy.json
 # OS
 .DS_Store
 Thumbs.db
+USAGE.md
+PUBLISHING.md
+example.py
+QUICKSTART.md

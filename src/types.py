@@ -120,8 +120,8 @@ class Flag:
         if data is None:
             data = {}
         # Handle both camelCase and snake_case
-        self.flag_icon = data.get("flagIcon") or data.get("flag_icon") or data.get("flag_Icon", "")
-        self.flag_unicode = data.get("flagUnicode") or data.get("flag_unicode", "")
+        self.flag_icon = data.get("flagIcon") if "flagIcon" in data else (data.get("flag_icon") if "flag_icon" in data else data.get("flag_Icon", ""))
+        self.flag_unicode = data.get("flagUnicode") if "flagUnicode" in data else data.get("flag_unicode", "")
         defined_keys = {"flagIcon", "flag_icon", "flag_Icon", "flagUnicode", "flag_unicode"}
         self.extra = {k: v for k, v in data.items() if k not in defined_keys}
 
@@ -142,8 +142,8 @@ class Currency:
         self.code = data.get("code", "")
         self.symbol = data.get("symbol", "")
         self.name = data.get("name", "")
-        self.name_plural = data.get("namePlural") or data.get("name_plural")
-        self.hex_unicode = data.get("hexUnicode") or data.get("hex_unicode")
+        self.name_plural = data.get("namePlural") if "namePlural" in data else data.get("name_plural")
+        self.hex_unicode = data.get("hexUnicode") if "hexUnicode" in data else data.get("hex_unicode")
         defined_keys = {"code", "symbol", "name", "namePlural", "name_plural", "hexUnicode", "hex_unicode"}
         self.extra = {k: v for k, v in data.items() if k not in defined_keys}
 
@@ -171,19 +171,19 @@ class GeoLocation:
         if data is None:
             data = {}
         self.continent = data.get("continent", "")
-        self.continent_code = data.get("continentCode") or data.get("continent_code", "")
+        self.continent_code = data.get("continentCode") if "continentCode" in data else data.get("continent_code", "")
         self.country = data.get("country", "")
-        self.country_code = data.get("countryCode") or data.get("country_code", "")
+        self.country_code = data.get("countryCode") if "countryCode" in data else data.get("country_code", "")
         self.capital = data.get("capital")
         self.region = data.get("region")
-        self.region_code = data.get("regionCode") or data.get("region_code")
+        self.region_code = data.get("regionCode") if "regionCode" in data else data.get("region_code")
         self.city = data.get("city")
-        self.postal_code = data.get("postal_Code") or data.get("postalCode") or data.get("postal_code")
-        self.dial_code = data.get("dial_code") or data.get("dialCode")
-        self.is_in_eu = data.get("is_in_eu") or data.get("isInEu")
+        self.postal_code = data.get("postal_Code") if "postal_Code" in data else (data.get("postalCode") if "postalCode" in data else data.get("postal_code"))
+        self.dial_code = data.get("dial_code") if "dial_code" in data else data.get("dialCode")
+        self.is_in_eu = data.get("is_in_eu") if "is_in_eu" in data else data.get("isInEu")
         self.latitude = data.get("latitude")
         self.longitude = data.get("longitude")
-        self.accuracy_radius = data.get("accuracy_radius") or data.get("accuracyRadius")
+        self.accuracy_radius = data.get("accuracy_radius") if "accuracy_radius" in data else data.get("accuracyRadius")
         
         defined_keys = {
             "continent", "continentCode", "continent_code", "country", "countryCode",
@@ -208,12 +208,12 @@ class Timezone:
     def __init__(self, data: Dict[str, Any] = None):
         if data is None:
             data = {}
-        self.time_zone = data.get("time_zone") or data.get("timeZone", "")
+        self.time_zone = data.get("time_zone") if "time_zone" in data else data.get("timeZone", "")
         self.abbr = data.get("abbr")
         self.offset = data.get("offset")
-        self.is_dst = data.get("is_dst") or data.get("isDst")
+        self.is_dst = data.get("is_dst") if "is_dst" in data else data.get("isDst")
         self.utc = data.get("utc")
-        self.current_time = data.get("current_time") or data.get("currentTime")
+        self.current_time = data.get("current_time") if "current_time" in data else data.get("currentTime")
         
         defined_keys = {"time_zone", "timeZone", "abbr", "offset", "is_dst", "isDst", "utc", "current_time", "currentTime"}
         self.extra = {k: v for k, v in data.items() if k not in defined_keys}
@@ -233,12 +233,12 @@ class Connection:
     def __init__(self, data: Dict[str, Any] = None):
         if data is None:
             data = {}
-        self.asn_number = data.get("asn_number") or data.get("asnNumber")
-        self.asn_org = data.get("asn_org") or data.get("asnOrg")
+        self.asn_number = data.get("asn_number") if "asn_number" in data else data.get("asnNumber")
+        self.asn_org = data.get("asn_org") if "asn_org" in data else data.get("asnOrg")
         self.isp = data.get("isp")
         self.org = data.get("org")
         self.domain = data.get("domain")
-        self.connection_type = data.get("connection_type") or data.get("connectionType")
+        self.connection_type = data.get("connection_type") if "connection_type" in data else data.get("connectionType")
         
         defined_keys = {"asn_number", "asnNumber", "asn_org", "asnOrg", "isp", "org", "domain", "connection_type", "connectionType"}
         self.extra = {k: v for k, v in data.items() if k not in defined_keys}
@@ -255,9 +255,9 @@ class Security:
     def __init__(self, data: Dict[str, Any] = None):
         if data is None:
             data = {}
-        self.is_vpn = data.get("is_vpn") or data.get("isVpn")
-        self.is_tor = data.get("is_tor") or data.get("isTor")
-        self.is_threat = data.get("is_threat") or data.get("isThreat")
+        self.is_vpn = data.get("is_vpn") if "is_vpn" in data else data.get("isVpn")
+        self.is_tor = data.get("is_tor") if "is_tor" in data else data.get("isTor")
+        self.is_threat = data.get("is_threat") if "is_threat" in data else data.get("isThreat")
         
         defined_keys = {"is_vpn", "isVpn", "is_tor", "isTor", "is_threat", "isThreat"}
         self.extra = {k: v for k, v in data.items() if k not in defined_keys}
@@ -282,11 +282,11 @@ class IPWhoData:
         self.ip = data.get("ip", "")
         
         # Handle both geoLocation and geo_location
-        geo_data = data.get("geoLocation") or data.get("geo_location")
+        geo_data = data.get("geoLocation") if "geoLocation" in data else data.get("geo_location")
         self.geo_location = GeoLocation(geo_data) if geo_data else None
         
         # Handle timezone
-        tz_data = data.get("timezone") or data.get("time_zone")
+        tz_data = data.get("timezone") if "timezone" in data else data.get("time_zone")
         self.timezone = Timezone(tz_data) if tz_data else None
         
         # Handle flag
@@ -302,7 +302,7 @@ class IPWhoData:
         self.connection = Connection(connection_data) if connection_data else None
         
         # Handle userAgent
-        ua_data = data.get("userAgent") or data.get("user_agent")
+        ua_data = data.get("userAgent") if "userAgent" in data else data.get("user_agent")
         self.user_agent = UserAgent(ua_data) if ua_data else None
         
         # Handle security

@@ -1,4 +1,4 @@
-# IPWho Python SDK
+# IPWho (ipwho.org) Python SDK
 
 [![Python version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![license](https://img.shields.io/github/license/lavrox/SDK-IPWho-Python?style=flat-square)](https://github.com/lavrox/SDK-IPWho-Python/blob/main/LICENSE)
 
@@ -272,6 +272,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Support
 
-- Email: support@ipwho.org
+- Contact: [Contact](https://www.ipwho.org/contact)
 - GitHub Issues: https://github.com/lavrox/SDK-IPWho-Python/issues
-- Documentation: https://github.com/lavrox/SDK-IPWho-Python
+- Documentation: [Documentation](https://github.com/lavrox/SDK-IPWho-Python)
