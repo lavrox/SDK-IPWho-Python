@@ -4,11 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ipwho-ip-geolocation-api"
-version = "1.0.1"
+version = "1.0.2"
 description = "The official Python SDK for the IPWho IP Geolocation API - Get detailed IP geolocation, timezone, connection, and security information with full type safety."
 readme = "README.md"
 requires-python = ">=3.8"
 license = "MIT"
+license-files = ["LICENSE"]
 authors = [
     {name = "IPWho SDK Contributors", email = "info@ipwho.org"}
 ]
